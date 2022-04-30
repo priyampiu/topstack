@@ -1,0 +1,37 @@
+/*html file*/
+<!doctype html>
+<html>
+    <head><title>CONCEPT</title></head>
+    <body>
+        <form action="filename.php" method="post">
+            Name: <input type="text" name="name">
+            Email: <input type="text" name="mail">
+            <input type="submit" name="sub" value="submit">
+        </form>
+    <body>
+</html>
+
+/*php file*/
+<?php
+if(isset($_POST['sub']))
+{
+    $n=$_POST['name'];
+    $e=$_POST['mail'];
+    echo $n;
+    echo $e;
+}
+?>
+
+
+/*concept of $_POST[]*/
+>it is an associative array.
+>This array creates in its backend side.
+>Like: $_POST=array('name'=>"value which enterd by user",'mail'=>"value which enterd by user");
+>So here,
+    - "$_POST" is a variable.
+    - 'name' and 'mail' are the name of the input fields in html
+
+
+
+/*POST vs GET*/ 
+>

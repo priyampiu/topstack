@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>VALIDATION FORM</title>
+</head>
+<body>
+    <header>
+        <h3>
+            <b>
+                VALIDATION FORM
+            </b>
+        </h3>
+    </header>
+        <form name="namef" onsubmit="return valid_func()">
+            <label>EMAIL</label>
+            <br>
+            <input type="email" name="mail" placeholder="Enter  email">
+            <div id="e">
+            </div>
+            <br>
+            <label>PASSWORD</label>
+            <br>
+            <input type="password" name="pass" placeholder="Enter  password">
+            <div id="p">
+            </div>
+            <br>
+            <input type="submit" name="sub" value="SUBMIT">
+        </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="Valid.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.contain
+{
+  height: 450px;
+  width: 50%;
+  position:absolute;
+  left: 25%;
+  top: 15%;
+  
+  background-color:rgb(9, 148, 153);
+  font-size: 22px;;
+  text-align: center;
+  border-radius: 25px;
+}
+.contain header
+{
+    padding: 40px;
+    font-size: 28px;
+    color: black;
+}
+.btn
+{
+    columns: red;
+    border-radius: 25px;
+}
