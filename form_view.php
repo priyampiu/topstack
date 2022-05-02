@@ -8,7 +8,7 @@
 
 <body>
     
-<form action="form_control.php" method="post">
+<form action="form_control.php" method="post" enctype="multipart/form-data"> 
     <div class="contain">
         <header><b>REGISTRATION FORM</b></header>
     
@@ -64,6 +64,11 @@
     <!--BIO DATA FIELD-->
         <label><b>Bio: </b></label><br>
         <textarea name="bio" placeholder="drop your bio"></textarea>
+        <br>
+
+    <!--BIO DATA FIELD-->
+        <label><b>Profile: </b></label>
+        <input type="file" name="profile" class="profile" placeholder="Enter your file">
         <br>
     
     <!--SUBMIT FIELD-->

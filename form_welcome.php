@@ -1,4 +1,6 @@
-<?php include "form_control.php"; ?>
+<?php include "form_control.php"; 
+$f=getimg();
+?>
 
 <!doctype html>
 <html>
@@ -10,9 +12,11 @@
     <body>
         <h1>
             <b>
-                Welcome
-                <?php=$_SESSION["un"];?>
-                <!-- also we can write this statement as "< ?=$_GEt['uname'];?>".
+                Welcome <?=$_GET['un'];?>
+                <?php foreach($f as $a){?>
+                <img src="upload/<?=$a['Pro_Name'];?>">
+                <?php } ?>
+                <!-- also we can write this statement as "< ?=$_GET['uname'];?>".
                 for the '=' sign browswer can understand that user wants to print this-->
             </b>    
         </h1>

@@ -1,7 +1,7 @@
 <?php
 include 'db_con.php';
 function addusers($user_arr){
-    $sql="insert into form values (null,?,?,?,?,?,?,?,?)";
+    
     $n=$user_arr['name'];
     $e=$user_arr['email'];
     $ps=$user_arr['pass'];
@@ -10,6 +10,7 @@ function addusers($user_arr){
     $g=$user_arr['gender'];
     $h=$user_arr['hobby'];
     $b=$user_arr['bio'];
+    $sql="insert into form values (null,?,?,?,?,?,?,?,?)";
     $conn=$GLOBALS['con'];
     $st=$conn->prepare($sql);
     $st->bind_param("ssssssss",$n,$e,$ps,$p,$d,$g,$h,$b);
@@ -137,4 +138,37 @@ function login($u)
     }
 }
 
+function upload($name)
+{
+    $sql="insert into profile values (null,?)";
+    $conn=$GLOBALS['con'];
+    $st=$conn->prepare($sql);
+    $st->bind_param("s",$name);
+    if($st->execute())
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    } 
+}
+
+
+function get_files()
+{
+    $conn=$GLOBALS['con'];
+    $sql="select * from profile";
+    $result=$conn->query($sql);
+    $arr=array();
+    if($result->num_rows>0)
+    {
+        while($row=$result->fetch_assoc())
+        {
+           //echo $row['Name']."<br>";
+           $arr[]=$row;
+        }
+    }
+    return $arr;
+}
 ?>

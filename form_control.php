@@ -17,9 +17,8 @@ if(isset($_POST['reg']))
     $r=addusers($user);
     if($r)
     {
-        session_start();
-        $_SESSION['un']=$n;
-        header("Location:form_welcome.php");
+        
+        header("Location:form_welcome.php?un=$n");
     }
     else
     {
@@ -35,7 +34,7 @@ if(isset($_POST['dlt']))
         $dl=dltuser($i);
         if($dl)
         {
-            header("Location:form_welcome.php?un=$n"); 
+            header("Location:form_welcome.php"); 
         }
     }
 
@@ -86,5 +85,49 @@ if(isset($_POST['log']))
         //echo "not";
         header("Location:form_login.php");
     }
+}
+
+if(isset($_POST['upload']) && $_FILES['profile'])
+{
+    $file=$_FILES['profile'];
+    $name=$file['name'];
+    $type=$file['type'];
+    $size=$file['size'];
+    $error=$file['error'];
+    $tmp_name=$file['tmp_name'];
+    if($error==0)
+    {
+        if($size<1250000)
+        {
+            $ext=pathinfo($name,PATHINFO_EXTENSION);
+            $ext_low=strtolower($ext);
+            $n_name=uniqid("IMG-",true).".".$ext_low;
+            if(upload($n_name))
+            {
+                if(move_uploaded_file($tmp_name,"upload/".$n_name))
+                {
+                    header("location:form_welcome.php");
+                }
+                else
+                {
+                    header("location:form_up.php");
+                }
+            }
+        }
+        else
+        {
+            echo "it is exist maximum size";
+        }
+    }
+    else
+    {
+        echo "something went wromg";
+    }
+}
+
+function getimg()
+{
+    $i=get_files();
+    return $i;
 }
 ?>
